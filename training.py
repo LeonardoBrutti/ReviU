@@ -5,12 +5,17 @@ from LSTM_MODEL import model, train_loader, valid_loader, test_loader
 
 ##Training##
 
-# NUMER0 DI EPOCHE USATO PER IL Modello, DAI VALORI FINALI(VISUALIZZABILI IN Risultati.TXT) RISULTATO OVERKILL
+# NUMER0 DI EPOCHE USATO PER IL MODELLO, DAI VALORI FINALI(VISUALIZZABILI IN RISULTATI.TXT) RISULTATO OVERKILL
+
 NUM_EPOCHS = 30
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
-#PERCORSO DI SALVATAGGIO DEL Modello
+#PERCORSO DI SALVATAGGIO DEL MODELLOMODELLO
+
+
 PERCORSO_FINALE = "modelli_salvati/modello.pth"
+
+
 
 def compute_accuracy(model, data_loader, device):
 
