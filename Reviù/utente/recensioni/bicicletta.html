@@ -87,7 +87,7 @@
     });
 
     function inviaDatiAlBackend(message) {
-        fetch('http://127.0.0.1:5000/invia_recensione', {
+        fetch('http://127.0.0.1:5000/invia_recensione_bicicletta', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@
         })
         .then(response => response.text())
         .then(data => {
-            console.log('Risposta dal server Flask:', data); // Visualizza la risposta del server Flask nella console del browser
+            console.log('Risposta dal server Flask:', data); 
         })
         .catch(error => console.error('Errore:', error));
     }

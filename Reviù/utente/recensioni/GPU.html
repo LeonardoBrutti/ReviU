@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recensione Bicicletta</title>
+    <title>Recensione GPU</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,7 +49,7 @@
             font-size: 18px;
             resize: none;
         }
-        input[type="submit"] {
+        button[type="submit"] {
             background-color: #4CAF50;
             color: white;
             padding: 15px 30px;
@@ -59,8 +59,11 @@
             font-size: 20px;
             transition: background-color 0.3s ease;
         }
-        input[type="submit"]:hover {
+        button[type="submit"]:hover {
             background-color: #45a049;
+        }
+        textarea:focus::placeholder {
+             color: transparent; 
         }
     </style>
 </head>
@@ -70,11 +73,32 @@
     <h1>Recensione per la GPU</h1>
     <p>Hai selezionato la GPU come prodotto, ti invitiamo a lasciare una recensione dettagliata, in <b>lingua inglese</b>, per aiutarci a migliorare e supportarti al meglio.</p>
 
-    <form action="#" method="post">
-        <textarea id="review" name="review" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
-        <input type="submit" value="Invia Recensione">
+    <form id="reviewForm" action="#">
+        <textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
+        <button id="inviaRecensione" type="submit">Invia Recensione</button>
     </form>
 </div>
+<script>
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var message = document.getElementById('message').value;
+        inviaDatiAlBackend(message);
+    });
 
+    function inviaDatiAlBackend(message) {
+        fetch('http://127.0.0.1:5000/invia_recensione_gpu', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({message: message})
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Risposta dal server Flask:', data); // Visualizza la risposta del server Flask nella console del browser
+        })
+        .catch(error => console.error('Errore:', error));
+    }
+</script>
 </body>
 </html>

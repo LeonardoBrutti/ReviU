@@ -44,7 +44,7 @@
     <script>
     // Funzione per ottenere la risposta dal backend
     function ottieniRisposta() {
-        fetch('http://127.0.0.1:5000/ottieni_risposta_gpu')
+        fetch('http://127.0.0.1:5000/ottieni_risposta_pannello')
             .then(response => response.json())
             .then(data => {
                 // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione

@@ -83,5 +83,3 @@ torch.save(model, PERCORSO_FINALE) # Salva il modello alla fine dell'addestramen
 
 
 print("Modello salvato.")
-print(f'TEMPO TOTALE TRAINING: {(time.time() - start_time) / 60:.2f} min')
-print(f'ACCURATEZZA TEST: {compute_accuracy(model, test_loader, DEVICE):.2f}%')

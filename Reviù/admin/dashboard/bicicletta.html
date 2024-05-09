@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard dei Messaggi</title>
+    <title>Dashboard delle recensioni</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,27 +37,42 @@
 </head>
 <body>
     <div class="container">
-        <h2>Dashboard dei Messaggi</h2>
+        <h2>Dashboard delle recensioni</h2>
         <div id="messageContainer">Nessun messaggio ricevuto</div>
     </div>
 
     <script>
-    // Funzione per ottenere la risposta dal backend
-    function ottieniRisposta() {
-        fetch('http://127.0.0.1:5000/ottieni_risposta')
-            .then(response => response.json())
-            .then(data => {
-                // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
-                document.getElementById('messageContainer').innerHTML = `
+// Funzione per ottenere la risposta dal backend
+function ottieniRisposta() {
+    fetch('http://127.0.0.1:5000/ottieni_risposta_bicicletta')
+        .then(response => response.json())
+        .then(data => {
+            // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
+            const messageContainer = document.getElementById('messageContainer');
+            if (data.predizione !== undefined) {
+                const messaggioHTML = `
                     <p>Messaggio: ${data.messaggio}</p>
                     <p>Recensione di Reviù: ${data.predizione}</p>
                 `;
-            })
-            .catch(error => console.error('Errore:', error));
-    }
+                // Imposta il colore del testo in base alla predizione
+                if (parseFloat(data.predizione) > 0.5) {
+                    messageContainer.style.color = 'green';
+                } else {
+                    messageContainer.style.color = 'red';
+                }
+                messageContainer.innerHTML = messaggioHTML;
+            } else {
+                // Se il messaggio non è ancora stato ricevuto, imposta il colore del testo a nero
+                messageContainer.style.color = 'black';
+                messageContainer.innerHTML = 'Nessun messaggio ricevuto';
+            }
+        })
+        .catch(error => console.error('Errore:', error));
+}
 
-    // Chiama la funzione ottieniRisposta ogni 5 secondi
-    setInterval(ottieniRisposta, 5000);
+// Chiama la funzione ottieniRisposta ogni 5 secondi
+setInterval(ottieniRisposta, 5000);
 </script>
+
 </body>
 </html>

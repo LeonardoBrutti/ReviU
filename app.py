@@ -3,6 +3,7 @@ from flask_cors import CORS
 import torch
 import spacy
 from LSTM_MODEL import TESTO
+
 app = Flask(__name__)
 CORS(app)
 
@@ -26,27 +27,109 @@ def predici_probabilità(sentence):
 
 
 # Lista per memorizzare le recensioni
-recensioni = []
+recensioni_bicicletta = []
+recensioni_pannello = []
+recensioni_gpu = []
+recensioni_elio = []
 
+class Comandi:
+    def invia_recensione_bici(self, message):
+        recensioni_bicicletta.append(message)
+        print("Recensione bicicletta ricevuta:", message)
 
-# Route per gestire la richiesta POST di invio della recensione
-@app.route('/invia_recensione', methods=['POST'])
-def invia_recensione():
+    def invia_recensione_pannelli(self, message):
+        recensioni_pannello.append(message)
+        print("Recensione pannello ricevuta:", message)
+
+    def invia_recensione_GPU(self, message):
+        recensioni_gpu.append(message)
+        print("Recensione gpu ricevuta:", message)
+
+    def invia_recensione_elioKit(self, message):
+        recensioni_elio.append(message)
+        print("Recensione elio ricevuta:", message)
+
+    def ottieni_risposta_bici(self):
+        if recensioni_bicicletta:
+            recensione = recensioni_bicicletta[-1]
+            predizione = predici_probabilità(recensione)
+            return jsonify({"messaggio": recensione, "predizione": predizione})
+        else:
+            return jsonify({"messaggio": "Nessuna recensione disponibile"})
+
+    def ottieni_risposta_pannelli(self):
+        if recensioni_pannello:
+            recensione = recensioni_pannello[-1]
+            predizione = predici_probabilità(recensione)
+            return jsonify({"messaggio": recensione, "predizione": predizione})
+        else:
+            return jsonify({"messaggio": "Nessuna recensione disponibile"})
+
+    def ottieni_risposta_GPU(self):
+        if recensioni_gpu:
+            recensione = recensioni_gpu[-1]
+            predizione = predici_probabilità(recensione)
+            return jsonify({"messaggio": recensione, "predizione": predizione})
+        else:
+            return jsonify({"messaggio": "Nessuna recensione disponibile"})
+
+    def ottieni_risposta_elioKit(self):
+        if recensioni_elio:
+            recensione = recensioni_elio[-1]
+            predizione = predici_probabilità(recensione)
+            return jsonify({"messaggio": recensione, "predizione": predizione})
+        else:
+            return jsonify({"messaggio": "Nessuna recensione disponibile"})
+
+comandi = Comandi()
+
+@app.route('/invia_recensione_bicicletta', methods=['POST'])
+def invia_recensione_bicicletta():
     if request.method == 'POST':
         data = request.json
         message = data.get('message', '')
-        recensioni.append(message)  # Aggiungi la recensione alla lista
-        print("Recensione ricevuta:", message)  # Stampa il messaggio ricevuto nella console del server Flask
-        return "Recensione ricevuta con successo!"
+        comandi.invia_recensione_bici(message)
+        return "Recensione bicicletta ricevuta con successo!"
 
-# Route per ottenere la risposta del modello
-@app.route('/ottieni_risposta', methods=['GET'])
-def ottieni_risposta():
-    if recensioni:  # Verifica se ci sono recensioni nella lista
-        recensione = recensioni[-1]  # Prendi l'ultima recensione inserita
-        predizione = predici_probabilità(recensione)  # Ottieni la predizione del modello
-        return jsonify({"messaggio": recensione, "predizione": predizione})
-    else:
-        return jsonify({"messaggio": "Nessuna recensione disponibile"})
+@app.route('/invia_recensione_pannello', methods=['POST'])
+def invia_recensione_pannello():
+    if request.method == 'POST':
+        data = request.json
+        message = data.get('message', '')
+        comandi.invia_recensione_pannelli(message)
+        return "Recensione pannello ricevuta con successo!"
+
+@app.route('/invia_recensione_gpu', methods=['POST'])
+def invia_recensione_gpu():
+    if request.method == 'POST':
+        data = request.json
+        message = data.get('message', '')
+        comandi.invia_recensione_GPU(message)
+        return "Recensione gpu ricevuta con successo!"
+
+@app.route('/invia_recensione_elio', methods=['POST'])
+def invia_recensione_elio():
+    if request.method == 'POST':
+        data = request.json
+        message = data.get('message', '')
+        comandi.invia_recensione_elioKit(message)
+        return "Recensione elio ricevuta con successo!"
+
+@app.route('/ottieni_risposta_bicicletta', methods=['GET'])
+def ottieni_risposta_bicicletta():
+    return comandi.ottieni_risposta_bici()
+
+@app.route('/ottieni_risposta_pannello', methods=['GET'])
+def ottieni_risposta_pannello():
+    return comandi.ottieni_risposta_pannelli()
+
+@app.route('/ottieni_risposta_gpu', methods=['GET'])
+def ottieni_risposta_gpu():
+    return comandi.ottieni_risposta_GPU()
+
+@app.route('/ottieni_risposta_elio', methods=['GET'])
+def ottieni_risposta_elio():
+    return comandi.ottieni_risposta_elioKit()
+
 if __name__ == '__main__':
     app.run(debug=True)
