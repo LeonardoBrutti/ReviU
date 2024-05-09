@@ -64,6 +64,7 @@ class Comandi:
         if recensioni_pannello:
             recensione = recensioni_pannello[-1]
             predizione = predici_probabilità(recensione)
+            predizione = round(predizione, 4)
             return jsonify({"messaggio": recensione, "predizione": predizione})
         else:
             return jsonify({"messaggio": "Nessuna recensione disponibile"})
@@ -72,6 +73,7 @@ class Comandi:
         if recensioni_gpu:
             recensione = recensioni_gpu[-1]
             predizione = predici_probabilità(recensione)
+            predizione = round(predizione, 4)
             return jsonify({"messaggio": recensione, "predizione": predizione})
         else:
             return jsonify({"messaggio": "Nessuna recensione disponibile"})
@@ -80,6 +82,7 @@ class Comandi:
         if recensioni_elio:
             recensione = recensioni_elio[-1]
             predizione = predici_probabilità(recensione)
+            predizione = round(predizione, 4)
             return jsonify({"messaggio": recensione, "predizione": predizione})
         else:
             return jsonify({"messaggio": "Nessuna recensione disponibile"})
