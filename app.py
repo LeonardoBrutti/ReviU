@@ -49,10 +49,13 @@ class Comandi:
         recensioni_elio.append(message)
         print("Recensione elio ricevuta:", message)
 
+
+
     def ottieni_risposta_bici(self):
         if recensioni_bicicletta:
             recensione = recensioni_bicicletta[-1]
             predizione = predici_probabilità(recensione)
+            predizione = round(predizione, 4)
             return jsonify({"messaggio": recensione, "predizione": predizione})
         else:
             return jsonify({"messaggio": "Nessuna recensione disponibile"})

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard delle recensioni</title>
     <style>
+        h2{
+            margin-top : 200px;
+            margin-bottom : 0 ;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -21,17 +25,26 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            max-width: 400px;
+            max-width: 800px;
+            max-height: 800px;
             width: 90%;
+            height: 90%;
             text-align: center;
         }
 
         #messageContainer {
-            margin-top: 20px;
+            margin: 20px auto;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            min-height: 100px;
+            max-height: 300px;
+            max-width: 300px;
+            width: 90%;
+            height: 90%;
+        }
+
+        h2 {
+            margin-bottom: 20px; /* Spazio sotto il titolo */
         }
     </style>
 </head>
@@ -42,37 +55,38 @@
     </div>
 
     <script>
-// Funzione per ottenere la risposta dal backend
-function ottieniRisposta() {
-    fetch('http://127.0.0.1:5000/ottieni_risposta_bicicletta')
-        .then(response => response.json())
-        .then(data => {
-            // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
-            const messageContainer = document.getElementById('messageContainer');
-            if (data.predizione !== undefined) {
-                const messaggioHTML = `
-                    <p>Messaggio: ${data.messaggio}</p>
-                    <p>Recensione di Reviù: ${data.predizione}</p>
-                `;
-                // Imposta il colore del testo in base alla predizione
-                if (parseFloat(data.predizione) > 0.5) {
-                    messageContainer.style.color = 'green';
-                } else {
-                    messageContainer.style.color = 'red';
-                }
-                messageContainer.innerHTML = messaggioHTML;
-            } else {
-                // Se il messaggio non è ancora stato ricevuto, imposta il colore del testo a nero
-                messageContainer.style.color = 'black';
-                messageContainer.innerHTML = 'Nessun messaggio ricevuto';
-            }
-        })
-        .catch(error => console.error('Errore:', error));
-}
+        // Funzione per ottenere la risposta dal backend
+        function ottieniRisposta() {
+            fetch('http://127.0.0.1:5000/ottieni_risposta_bicicletta')
+                .then(response => response.json())
+                .then(data => {
+                    // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
+                    const messageContainer = document.getElementById('messageContainer');
+                    if (data.predizione !== undefined) {
+                        const messaggioHTML = `
+                            <p style="color: black">Nuova recensione: </p>
+                            <p>${data.messaggio}</p>
+                            <p style="color: black">Recensione di Reviù: </p>
+                            <p>${data.predizione}</p>
+                        `;
+                        // Imposta il colore del testo in base alla predizione
+                        if (parseFloat(data.predizione) > 0.5) {
+                            messageContainer.style.color = 'green';
+                        } else {
+                            messageContainer.style.color = 'red';
+                        }
+                        messageContainer.innerHTML = messaggioHTML;
+                    } else {
+                        // Se il messaggio non è ancora stato ricevuto, imposta il colore del testo a nero
+                        messageContainer.style.color = 'black';
+                        messageContainer.innerHTML = 'Nessun messaggio ricevuto';
+                    }
+                })
+                .catch(error => console.error('Errore:', error));
+        }
 
-// Chiama la funzione ottieniRisposta ogni 5 secondi
-setInterval(ottieniRisposta, 5000);
-</script>
-
+        // Chiama la funzione ottieniRisposta ogni 5 secondi
+        setInterval(ottieniRisposta, 5000);
+    </script>
 </body>
 </html>
