@@ -15,7 +15,6 @@
     </div>
 
     <script>
-        // Funzione per ottenere la risposta dal backend
         function ottieniRisposta() {
             fetch('http://127.0.0.1:5000/ottieni_risposta_gpu')
                 .then(response => response.json())
@@ -23,19 +22,29 @@
                     // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
                     const messageContainer = document.getElementById('messageContainer');
                     if (data.predizione !== undefined) {
-                        const messaggioHTML = `
+                        const messaggioHTMLpos = `
                             <p style="color: black">Ultima recensione: </p>
                             <p>${data.messaggio}</p>
                             <p style="color: black">Recensione di Reviù: </p>
+                            <p style="color: green">Recensione positiva </p>
                             <p>${data.predizione}</p>
                         `;
-                        // Imposta il colore del testo in base alla predizione
-                        if (parseFloat(data.predizione) > 0.5) {
+                        const messaggioHTMLneg = `
+                            <p style="color: black">Ultima recensione: </p>
+                            <p>${data.messaggio}</p>
+                            <p style="color: black">Recensione di Reviù: </p>
+                            <p style="color: red">Recensione negativa </p>
+                            <p>${data.predizione}</p>
+                        `;
+
+                        // Imposta il colore del testo in base alla predizione e mostra il messaggio appropriato
+                        if (parseFloat(data.predizione) > 0.50) {
                             messageContainer.style.color = 'green';
+                            messageContainer.innerHTML = messaggioHTMLpos;
                         } else {
                             messageContainer.style.color = 'red';
+                            messageContainer.innerHTML = messaggioHTMLneg;
                         }
-                        messageContainer.innerHTML = messaggioHTML;
                     } else {
                         // Se il messaggio non è ancora stato ricevuto, imposta il colore del testo a nero
                         messageContainer.style.color = 'black';

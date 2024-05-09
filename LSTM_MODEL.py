@@ -20,6 +20,7 @@ TESTO = torchtext.legacy.data.Field(
     tokenizer_language='en_core_web_sm'
 )
 
+
             ### LABEL ####
 
 LABEL = torchtext.legacy.data.LabelField(dtype=torch.long)
@@ -28,12 +29,17 @@ LABEL = torchtext.legacy.data.LabelField(dtype=torch.long)
 
 fields = [('TEXT_COLUMN_NAME', TESTO), ('LABEL_COLUMN_NAME', LABEL)]
 
-# Dataset, IMDB REWIEWS Dataset
+
+    ### Dataset, IMDB REWIEWS Dataset###
+
+
 dataset = torchtext.legacy.data.TabularDataset(
     path='movie_data.csv', format='csv',
     skip_header=True, fields=fields)
 
-###DIVISIONE DEI DATI IN TRAIN ,TEST E VALID
+    ###DIVISIONE DEI DATI IN TRAIN ,TEST E VALID###
+
+
 train_data, test_data = dataset.split(
     split_ratio=[0.8, 0.2],
     random_state=random.seed(RANDOM_SEED))

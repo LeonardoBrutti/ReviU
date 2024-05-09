@@ -6,7 +6,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2;
+    background-color: #c95634;
+    background: -webkit-linear-gradient(-135deg, #cc9d56, #791366);
+    background: -o-linear-gradient(-135deg, #cc9d56, #791366);
+    background: -moz-linear-gradient(-135deg, #cc9d56, #791366);
+    background: linear-gradient(-135deg, #cc9d56, #791366);
 }
 
 .container {
