@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #008080;
+    background: -webkit-linear-gradient(-135deg, #67b9b9, #10a1a1);
+    background: -o-linear-gradient(-135deg, #67b9b9, #10a1a1);
+    background: -moz-linear-gradient(-135deg, #67b9b9, #10a1a1);
+    background: linear-gradient(-135deg, #67b9b9, #10a1a1);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 930px;
+    max-height: 650px;
+    width: 90%;
+    height: 90%;
+    text-align: center;
+    justify-content: center;
+}
+
+#messageContainer {
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 300px;
+    max-width: 300px;
+    width: 90%;
+    height: 90%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    margin-top : 120px;
+}
