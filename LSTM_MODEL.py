@@ -51,6 +51,8 @@ train_data, valid_data = train_data.split(
     random_state=random.seed(RANDOM_SEED))
 
 
+
+            ####VOCABOLARIO DI PAROLE UNICHE####
 TESTO.build_vocab(train_data, max_size=GRANDEZZA_VOCABOLARIO)
 LABEL.build_vocab(train_data)
 
@@ -66,7 +68,7 @@ train_loader, valid_loader, test_loader = \
          device=DEVICE
     )
 
-
+            ####CLASSE CHE SPECIFICA DATI E FUNZIONI DEL MODELLO####
 class LSTM(torch.nn.Module):
 
     def __init__(self, input_dim, embedding_dim, hidden_dim, output_dim):
@@ -79,17 +81,13 @@ class LSTM(torch.nn.Module):
         self.fc = torch.nn.Linear(hidden_dim, output_dim)
 
     def forward(self, text):
-        # text dim: [lunghezza frase, grandezza batch]
 
         embedded = self.embedding(text)
-        # embedded dim: [lunghezza frase, grandezza batch, embedding dim]
 
         output, (hidden, cell) = self.rnn(embedded)
-        # output dim: lunghezza frase, grandezza batch, hidden dim]
-        # hidden dim: [1, grandezza batch, hidden dim]
+
 
         hidden.squeeze_(0)
-        # hidden dim: [grandezza batch, hidden dim]
 
         output = self.fc(hidden)  #fc = fully connected
         return output

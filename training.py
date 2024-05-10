@@ -3,9 +3,10 @@ import torch.nn.functional as F
 import time
 from LSTM_MODEL import model, train_loader, valid_loader, test_loader
 
-##Training##
+##TRAINING##
 
-# NUMER0 DI EPOCHE USATO PER IL MODELLO, DAI VALORI FINALI(VISUALIZZABILI IN RISULTATI.TXT) RISULTATO OVERKILL
+# NUMER0 DI EPOCHE USATE PER IL MODELLO, DAI VALORI FINALI(VISUALIZZABILI IN RISULTATI.TXT) ###
+# È RISULTATO ESSERE OVERKILL, UN VALORE DI 15 È PIù CHE OTTIMALE###
 
 NUM_EPOCHS = 30
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -16,7 +17,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 PERCORSO_FINALE = "modelli_salvati/modello.pth"
 
 
-
+#Funzione per il calcolo dell'accuratezza###
 def compute_accuracy(model, data_loader, device):
 
     with torch.no_grad():
@@ -45,7 +46,7 @@ for epoch in range(NUM_EPOCHS):
         text = batch_data.TEXT_COLUMN_NAME.to(DEVICE)
         labels = batch_data.LABEL_COLUMN_NAME.to(DEVICE)
 
-        ### FORWARD E BACK PROPAGATION
+        ### FORWARD E BACK PROPAGATION###
 
         logits = model(text)
         loss = F.cross_entropy(logits, labels)
@@ -54,13 +55,13 @@ for epoch in range(NUM_EPOCHS):
         loss.backward()
 
 
-        ### AGGIORNAMENTO PARAMETRI DEL Modello
+        ### AGGIORNAMENTO PARAMETRI DEL Modello####
 
 
         optimizer.step()
 
 
-        ### AGGIORNAMENTI A SCHERMO
+        ### AGGIORNAMENTI A SCHERMO###
 
 
         if not batch_idx % 50:
@@ -78,8 +79,6 @@ for epoch in range(NUM_EPOCHS):
     print(f'TEMPO PASSATO: {(time.time() - start_time) / 60:.2f} min')
 
 
-
-torch.save(model, PERCORSO_FINALE) # Salva il modello alla fine dell'addestramento
-
-
+# Salva il modello alla fine dell'addestramento###
+torch.save(model, PERCORSO_FINALE)
 print("Modello salvato.")
