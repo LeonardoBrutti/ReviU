@@ -7,49 +7,74 @@
     <title>Dashboard delle recensioni</title>
     <link rel="stylesheet" href="../css/main.css">
 
-</head>
 <body>
     <div class="container">
         <h2>Dashboard delle recensioni dei pannelli solari</h2>
-        <div id="messageContainer">Nessun messaggio ricevuto</div>
+        <table id="messageTable">
+            <thead>
+                <tr>
+                    <th>Ultima recensione</th>
+                    <th>Recensione di Reviù</th>
+                    <th>Predizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Qui verranno inseriti dinamicamente i messaggi -->
+            </tbody>
+        </table>
     </div>
 
     <script>
+        // Array per memorizzare le ultime tre recensioni
+        const lastThreeReviews = [];
+
+        function recensioneGiaPresente(testo) {
+            // Controlla se una recensione con lo stesso testo è già presente nell'array
+            return lastThreeReviews.some(review => review.messaggio === testo);
+        }
+
         function ottieniRisposta() {
             fetch('http://127.0.0.1:5000/ottieni_risposta_pannello')
                 .then(response => response.json())
                 .then(data => {
-                    // Aggiorna il contenuto del messageContainer con il messaggio della recensione e la predizione
-                    const messageContainer = document.getElementById('messageContainer');
-                    if (data.predizione !== undefined) {
-                        const messaggioHTMLpos = `
-                            <p style="color: black">Ultima recensione: </p>
-                            <p>${data.messaggio}</p>
-                            <p style="color: black">Recensione di Reviù: </p>
-                            <p style="color: green">Recensione positiva </p>
-                            <p>${data.predizione}</p>
-                        `;
-                        const messaggioHTMLneg = `
-                            <p style="color: black">Ultima recensione: </p>
-                            <p>${data.messaggio}</p>
-                            <p style="color: black">Recensione di Reviù: </p>
-                            <p style="color: red">Recensione negativa </p>
-                            <p>${data.predizione}</p>
-                        `;
+                    const messageTable = document.getElementById('messageTable');
+                    const tbody = messageTable.getElementsByTagName('tbody')[0];
 
-                        // Imposta il colore del testo in base alla predizione e mostra il messaggio appropriato
-                        if (parseFloat(data.predizione) > 0.50) {
-                            messageContainer.style.color = 'green';
-                            messageContainer.innerHTML = messaggioHTMLpos;
-                        } else {
-                            messageContainer.style.color = 'red';
-                            messageContainer.innerHTML = messaggioHTMLneg;
+                    // Se una recensione con lo stesso testo è già presente, non aggiungere la nuova recensione
+                    if (data.predizione !== undefined && !recensioneGiaPresente(data.messaggio)) {
+                        // Aggiungi la nuova recensione all'inizio dell'array
+                        lastThreeReviews.unshift(data);
+
+    
+                        if (lastThreeReviews.length > 3) {
+                            lastThreeReviews.pop(); // Rimuovi la recensione più vecchia
                         }
-                    } else {
-                        // Se il messaggio non è ancora stato ricevuto, imposta il colore del testo a nero
-                        messageContainer.style.color = 'black';
-                        messageContainer.innerHTML = 'Nessun messaggio ricevuto';
                     }
+
+                    tbody.innerHTML = '';
+
+                    // Aggiorna la tabella con le ultime tre recensioni
+                    lastThreeReviews.forEach(review => {
+                        const newRow = tbody.insertRow();
+                        const cell1 = newRow.insertCell(0);
+                        const cell2 = newRow.insertCell(1);
+                        const cell3 = newRow.insertCell(2);
+
+                        cell1.innerText = review.messaggio;
+                        cell2.innerText = "Recensione " + (parseFloat(review.predizione) > 0.50 ? "positiva" : "negativa");
+                        cell3.innerText = review.predizione;
+
+                        // Imposta il colore del testo in base alla predizione
+                        if (parseFloat(review.predizione) > 0.50) {
+                            cell1.classList.add('reviewContent');
+                            cell2.classList.add('positiveReview');
+                            cell3.classList.add('positiveReview');
+                        } else {
+                            cell1.classList.add('reviewContent');
+                            cell2.classList.add('negativeReview');
+                            cell3.classList.add('negativeReview');
+                        }
+                    });
                 })
                 .catch(error => console.error('Errore:', error));
         }

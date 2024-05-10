@@ -16,7 +16,7 @@
 
     <form id="reviewForm" action="#">
         <textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
-        <div class="success-message" id="successMessage" style="display: none;">Recensione inviata</div>
+        <div class="success-message" id="successMessage" style="display: none;"><b>Recensione inviata! (❁´◡`❁)</b></div>
         <button id="inviaRecensione" type="submit">Invia Recensione</button>
     </form>
 </div>
@@ -26,7 +26,7 @@
         event.preventDefault();
         var message = document.getElementById('message').value;
         inviaDatiAlBackend(message);
-        document.getElementById('message').value = ''; // Reset del campo di testo
+        document.getElementById('message').value = '';
         document.getElementById('successMessage').style.display = 'block'; // Mostra il messaggio di successo
         setTimeout(function() {
             document.getElementById('successMessage').style.display = 'none'; // Nasconde il messaggio di successo dopo 3 secondi

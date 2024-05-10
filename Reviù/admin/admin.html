@@ -1,109 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina admin</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .dashboard {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            max-width: 1200px; 
-            margin: 50px auto; 
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px; 
-        }
-
-        .button-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s ease; 
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        .product-item {
-            margin-top: 20px; 
-            text-align: center;
-        }
-
-        .product-image {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.js-tilt').tilt({
+                scale: 1.4
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="dashboard">
-        <h1 style="font-size: 36px;">Benvenuto in MVBL SHOP - ADMIN</h1>
+        <h1 style="font-size: 36px;">Benvenuto in MVBL SHOP - ADMIN</h1> 
+        <h1 style="font-size: 36px;">Grazie per aver scelto l'assistenza di Reviù in questo sito! </h1>
+
         <div class="buttons">
             <div class="button-wrapper">
                 <button class="button" onclick="window.location.href='dashboard/bicicletta.html'">Bicicletta</button>
-                <div class="product-item">
+                <div class="product-item js-tilt">
                     <img class="product-image" src="https://laciclisticamilano.it/wp-content/uploads/2022/01/La-Ciclistica-Milano-La-01-city-bike-bicicletta-urbana-bici-su-misura.png" alt="Prodotto 1">
                 </div>
             </div>
             <div class="button-wrapper">
                 <button class="button" onclick="window.location.href='dashboard/pannelloSolare.html'">Panelli Solari!</button>
-                <div class="product-item">
+                <div class="product-item js-tilt">
                     <img class="product-image" src="../images/prodotti/pannelloSolare.png" alt="Prodotto 2">
                 </div>
             </div>
             <div class="button-wrapper">
                 <button class="button" onclick="window.location.href='dashboard/GPU.html'">Una bella GPU</button>
-                <div class="product-item">  
-                    <img class="product-image" src="https://www.pixmart.it/wp-content/uploads/2022/01/pny-a30.jpg" alt="Prodotto 3">
+                <div class="product-item js-tilt">  
+                    <img class="product-image" src="../images/prodotti/GPU.png" alt="Prodotto 3">
                 </div>
             </div>
             <div class="button-wrapper">
                 <button class="button" onclick="window.location.href='dashboard/elio.html'">Elio IOT Kit</button>
-                <div class="product-item">
+                <div class="product-item js-tilt">
                     <img class="product-image" src="https://elioiot.it/wp-content/uploads/sites/4/2023/11/elio-iot-edu-kit.png" alt="Prodotto 4">
                 </div>
             </div>

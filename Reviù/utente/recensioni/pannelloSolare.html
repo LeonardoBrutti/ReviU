@@ -4,28 +4,28 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recensione Pannelli</title>
+    <title>Recensioni per la bicicletta</title>
     <link rel="stylesheet" href="../css/main.css">
 
 </head>
 <body>
 
-<div class="container">
-    <h1>Recensione per i pannelli solari</h1>
-    <p>Hai selezionato i nostri pannelli solari come prodotto, ti invitiamo a lasciare una recensione dettagliata, in <b>lingua inglese</b>, per aiutarci a migliorare e supportarti al meglio.</p>
-
-    <form id="reviewForm" action="#">
-        <textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
-        <div class="success-message" id="successMessage" style="display: none;">Recensione inviata</div>
-        <button id="inviaRecensione" type="submit">Invia Recensione</button>
-    </form>
-</div>
+    
+    <div class="container">
+        <h1>Recensione per i pannelli solari</h1>
+        <p>Hai selezionato i nostri pannelli solari come prodotto, ti invitiamo a lasciare una recensione dettagliata, in <b>lingua inglese</b>, per aiutarci a migliorare e supportarti al meglio.</p>
+    
+        <form id="reviewForm" action="#">
+            <textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
+            <div class="success-message" id="successMessage" style="display: none;">Recensione inviata! (❁´◡`❁)</div>
+            <button id="inviaRecensione" type="submit">Invia Recensione</button>
+        </form>
 <script>
     document.getElementById('reviewForm').addEventListener('submit', function(event) {
         event.preventDefault();
         var message = document.getElementById('message').value;
         inviaDatiAlBackend(message);
-        document.getElementById('message').value = ''; // Reset del campo di testo
+        document.getElementById('message').value = '';
         document.getElementById('successMessage').style.display = 'block'; // Mostra il messaggio di successo
         setTimeout(function() {
             document.getElementById('successMessage').style.display = 'none'; // Nasconde il messaggio di successo dopo 3 secondi
@@ -47,5 +47,6 @@
         .catch(error => console.error('Errore:', error));
     }
 </script>
+
 </body>
 </html>

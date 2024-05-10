@@ -7,17 +7,21 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #c95634;
-    background: -webkit-linear-gradient(-135deg, #cc9d56, #791366);
-    background: -o-linear-gradient(-135deg, #cc9d56, #791366);
-    background: -moz-linear-gradient(-135deg, #cc9d56, #791366);
-    background: linear-gradient(-135deg, #cc9d56, #791366);
+    background: -webkit-linear-gradient(-135deg, #1988c9, #b31896);
+    background: -o-linear-gradient(-135deg, #1988c9, #b31896);
+    background: -moz-linear-gradient(-135deg, #1988c9, #b31896);
+    background: linear-gradient(-135deg, #1988c9, #b31896);
 }
 
 .container {
     width: 80%;
     max-width: 800px;
     padding: 30px;
-    background-color: #fff;
+    background: #c7035e;
+    background: -webkit-linear-gradient(-135deg, #b8dd15, #c70f7a);
+    background: -o-linear-gradient(-135deg, #b8dd15, #c70f7a);
+    background: -moz-linear-gradient(-135deg, #b8dd15, #c70f7a);
+    background: linear-gradient(-135deg, #b8dd15, #c70f7a);
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -31,7 +35,7 @@ h1 {
 
 p {
     text-align: center;
-    color: #666;
+    color: black;
     font-size: 20px;
     margin-bottom: 40px;
 }
@@ -72,7 +76,7 @@ textarea:focus::placeholder {
 }
 
 .success-message {
-    color: red;
+    color: black;
     font-size: 20px;
     margin-bottom: 10px;
 }

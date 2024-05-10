@@ -1,13 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background: #008080;
-    background: -webkit-linear-gradient(-135deg, #64b47b, #08325b);
-    background: -o-linear-gradient(-135deg, #64b47b, #08325b);
-    background: -moz-linear-gradient(-135deg, #64b47b, #08325b);
-    background: linear-gradient(-135deg, #64b47b, #08325b);
+    
     margin: 0;
     padding: 0;
     display: flex;
+    background: #c51515;
+    background: -webkit-linear-gradient(-135deg, #be1a5e, #524b4b);
+    background: -o-linear-gradient(-135deg, #be1a5e, #524b4b);
+    background: -moz-linear-gradient(-135deg, #be1a5e, #524b4b);
+    background: linear-gradient(-135deg, #be1a5e, #524b4b);
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -18,27 +19,48 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 530px;
-    max-height: 450px;
+    max-width: 800px;
     width: 90%;
-    height: 90%;
     text-align: center;
     justify-content: center;
+    
+    background: #eb4e05;
+    background: -webkit-linear-gradient(-135deg, #524b4b, #be1a5e);
+    background: -o-linear-gradient(-135deg, #524b4b, #be1a5e);
+    background: -moz-linear-gradient(-135deg, #524b4b, #be1a5e);
+    background: linear-gradient(-135deg, #524b4b, #be1a5e);
 }
 
-#messageContainer {
-    margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    max-height: 300px;
-    max-width: 300px;
-    width: 90%;
-    height: 90%;
-}
 
 h2 {
     margin-bottom: 20px;
     margin-top : 20px;
     font-size: 30px;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+td {
+    padding: 8px;
+    border: none; /* Rimuovi i bordi */
+    word-wrap: break-word;
+    max-width: 300px; 
+}
+
+.positiveReview {
+    color: green;
+    text-shadow: 1px 1px 2px darkgreen;
+}
+.negativeReview {
+    color: red;
+    text-shadow: 1px 1px 2px darkred;
+}
+.reviewContent{
+    color : black;
+    text-shadow: 1px 1px 2px darkslategrey;
+}
+
