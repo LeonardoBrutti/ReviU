@@ -32,6 +32,8 @@ recensioni_pannello = []
 recensioni_gpu = []
 recensioni_elio = []
 
+
+#Funzioni per l'invio e la ricezione dei dati con il sito web
 class Comandi:
     def invia_recensione_bici(self, message):
         recensioni_bicicletta.append(message)
@@ -88,6 +90,8 @@ class Comandi:
             return jsonify({"messaggio": "Nessuna recensione disponibile"})
 
 comandi = Comandi()
+
+#Funzioni di POST e di GET, usate dal sito per scambiare dati
 
 @app.route('/invia_recensione_bicicletta', methods=['POST'])
 def invia_recensione_bicicletta():
