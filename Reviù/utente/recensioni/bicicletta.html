@@ -1,53 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recensioni per la bicicletta</title>
-    <link rel="stylesheet" href="../css/main.css">
-
-</head>
-<body>
-
-<div class="container">
-    <h1>Recensione per la bicicletta</h1>
-    <p>Hai selezionato una delle nostre biciclette come prodotto, ti invitiamo a lasciare una recensione dettagliata, in <b>lingua inglese</b>, per aiutarci a migliorare e supportarti al meglio.</p>
-
-    <form id="reviewForm" action="#">
-        <textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea><br>
-        <div class="success-message" id="successMessage" style="display: none;"><b>Recensione inviata! (❁´◡`❁)</b></div>
-        <button id="inviaRecensione" type="submit">Invia Recensione</button>
-    </form>
-</div>
-
-<script>
-    document.getElementById('reviewForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var message = document.getElementById('message').value;
-        inviaDatiAlBackend(message);
-        document.getElementById('message').value = '';
-        document.getElementById('successMessage').style.display = 'block'; // Mostra il messaggio di successo
-        setTimeout(function() {
-            document.getElementById('successMessage').style.display = 'none'; // Nasconde il messaggio di successo dopo 3 secondi
-        }, 3000);
-    });
-
-    function inviaDatiAlBackend(message) {
-        fetch('http://127.0.0.1:5000/invia_recensione_bicicletta', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({message: message})
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log('Risposta dal server Flask:', data); // Visualizza la risposta del server Flask nella console del browser
-        })
-        .catch(error => console.error('Errore:', error));
-    }
-</script>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Recensioni per la bicicletta</title>
+		<link rel="stylesheet" href="../css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Recensione per la bicicletta</h1>
+			<p>Hai selezionato una delle nostre biciclette come prodotto, ti invitiamo a lasciare una recensione dettagliata, in <b>lingua inglese</b>, per aiutarci a migliorare e supportarti al meglio.</p>
+			<form id="reviewForm" action="#">
+				<textarea id="message" name="message" placeholder="Inserisci qui la tua recensione..." required></textarea>
+				<br>
+				<div class="success-message" id="successMessage" style="display: none;"><b>Recensione inviata! (❁´◡`❁)</b></div>
+				<button id="inviaRecensione" type="submit">Invia Recensione</button>
+			</form>
+		</div>
+		<script src="../js/main.js"></script>
+		<script>
+			buttonPress('http://127.0.0.1:5000/invia_recensione_bicicletta');
+			
+		</script>
+	</body>
 </html>

@@ -1,88 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard delle recensioni</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Dashboard delle recensioni delle biciclette</h2>
-        <table id="messageTable">
-            <thead>
-                <tr>
-                    <th>Ultima recensione</th>
-                    <th>Recensione di Reviù</th>
-                    <th>Predizione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Qui verranno inseriti dinamicamente i messaggi -->
-            </tbody>
-        </table>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Dashboard delle recensioni</title>
+		<link rel="stylesheet" href="../css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<h2>Dashboard delle recensioni delle biciclette</h2>
+			<table id="messageTable">
+				<thead>
+					<tr>
+						<th>Ultima recensione</th>
+						<th>Recensione di Reviù</th>
+						<th>Predizione</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Qui verranno inseriti dinamicamente i messaggi -->
+				</tbody>
+			</table>
+		</div>
+		<script src="../js/main.js"></script>
+		<script>
+			
+            function chiamataOttieniRisposta() {
+                ottieniRisposta('http://127.0.0.1:5000/ottieni_risposta_bicicletta');
+            }
 
-    <script>
-        // Array per memorizzare le ultime tre recensioni
-        const lastThreeReviews = [];
+			// Chiama la funzione ottieniRisposta ogni 5 secondi
+            setInterval(chiamataOttieniRisposta, 5000);
 
-        function recensioneGiaPresente(testo) {
-            // Controlla se una recensione con lo stesso testo è già presente nell'array
-            return lastThreeReviews.some(review => review.messaggio === testo);
-        }
-
-        function ottieniRisposta() {
-            fetch('http://127.0.0.1:5000/ottieni_risposta_bicicletta')
-                .then(response => response.json())
-                .then(data => {
-                    const messageTable = document.getElementById('messageTable');
-                    const tbody = messageTable.getElementsByTagName('tbody')[0];
-                    
-                    // Se una recensione con lo stesso testo è già presente, non aggiungere la nuova recensione
-                    if (data.predizione !== undefined && !recensioneGiaPresente(data.messaggio)) {
-                        // Aggiungi la nuova recensione all'inizio dell'array
-                        lastThreeReviews.unshift(data);
-
-                        // Mantieni solo le ultime tre recensioni
-                        if (lastThreeReviews.length > 3) {
-                            lastThreeReviews.pop(); // Rimuovi la recensione più vecchia
-                        }
-                    }
-
-                    // Rimuovi i messaggi precedenti dalla tabella
-                    tbody.innerHTML = '';
-
-                    // Aggiorna la tabella con le ultime tre recensioni
-                    lastThreeReviews.forEach(review => {
-                        const newRow = tbody.insertRow();
-                        const cell1 = newRow.insertCell(0);
-                        const cell2 = newRow.insertCell(1);
-                        const cell3 = newRow.insertCell(2);
-
-                        cell1.innerText = review.messaggio;
-                        cell2.innerText = "Recensione " + (parseFloat(review.predizione) > 0.50 ? "positiva" : "negativa");
-                        cell3.innerText = review.predizione;
-
-                        // Imposta il colore del testo in base alla predizione
-                        if (parseFloat(review.predizione) > 0.50) {
-                            cell1.classList.add('reviewContent'); 
-                            cell2.classList.add('positiveReview'); 
-                            cell3.classList.add('positiveReview');
-                        } else {
-                            cell1.classList.add('reviewContent'); 
-                            cell2.classList.add('negativeReview'); 
-                            cell3.classList.add('negativeReview');
-                        }
-                    });
-
-                   
-                })
-                .catch(error => console.error('Errore:', error));
-        }
-
-        // Chiama la funzione ottieniRisposta ogni 5 secondi
-        setInterval(ottieniRisposta, 5000);
-    </script>
-</body>
+		</script>
+	</body>
 </html>

@@ -28,8 +28,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    max-width: 1200px; 
-    margin: 50px auto; 
+    max-width: 1200px;
+    margin: 50px auto;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .button-wrapper {
@@ -61,7 +61,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -69,7 +69,7 @@ body {
 }
 
 .product-item {
-    margin-top: 20px; 
+    margin-top: 20px;
     text-align: center;
 }
 

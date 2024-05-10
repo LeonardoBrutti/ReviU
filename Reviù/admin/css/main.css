@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    
+
     margin: 0;
     padding: 0;
     display: flex;
@@ -23,7 +23,7 @@ body {
     width: 90%;
     text-align: center;
     justify-content: center;
-    
+
     background: #eb4e05;
     background: -webkit-linear-gradient(-135deg, #524b4b, #be1a5e);
     background: -o-linear-gradient(-135deg, #524b4b, #be1a5e);
@@ -34,7 +34,7 @@ body {
 
 h2 {
     margin-bottom: 20px;
-    margin-top : 20px;
+    margin-top: 20px;
     font-size: 30px;
 }
 
@@ -46,21 +46,23 @@ table {
 
 td {
     padding: 8px;
-    border: none; /* Rimuovi i bordi */
+    border: none;
+    /* Rimuovi i bordi */
     word-wrap: break-word;
-    max-width: 300px; 
+    max-width: 300px;
 }
 
 .positiveReview {
     color: green;
     text-shadow: 1px 1px 2px darkgreen;
 }
+
 .negativeReview {
     color: red;
     text-shadow: 1px 1px 2px darkred;
 }
-.reviewContent{
-    color : black;
+
+.reviewContent {
+    color: black;
     text-shadow: 1px 1px 2px darkslategrey;
 }
-
