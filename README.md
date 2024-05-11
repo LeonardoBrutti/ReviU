@@ -19,6 +19,10 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     ``` bash
     pip install -r requirements.txt
     ```
+- Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il codice:
+    ``` bash
+  !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
+    ```
 
 - Installare il tokenizer fornito da Spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
     ``` bash
@@ -36,11 +40,9 @@ python app.py
 ```
 Una volta avviato lo script python bisogna aspettare circa una trentina di secondi per il caricamento del modello, una volta che viene visualizzata la seguente scritta sul terminale è possibile avviare il sito .
 ```
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. * Running on http://127.0.0.1:5000
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
 Press CTRL+C to quit
-* Restarting with stat
-* Debugger is active!
-* Debugger PIN: 144-891-974
 ```
 Per avviare il sito bisogna andare nella directory `Reviù` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin : dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente : dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP.
 
