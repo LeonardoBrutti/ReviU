@@ -74,7 +74,7 @@ Il progetto è suddiviso in diversi file e moduli:
 Se si è particolarmente interessati ai dettagli del progetto è possibile trovare una relazione tecnica [qui](https://github.com/LeonardoBrutti/ReviU/blob/main/Documentazione%20tecnica%20Revi%C3%B9.pdf)
 
 # Crediti
-La pagina di login come menzionato nella [documentazione tecnica](https://github.com/LeonardoBrutti/ReviU/blob/main/Documentazione%20tecnica%20Revi%C3%B9.pdf) è un template che è stato utilizzato come base e che poi è stato modificato. Il template è trovabile [qui](https://colorlib.com/wp/template/login-form-v1/). Inoltre il dataset è stato scaricato da [qui](!wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/).
+La pagina di login come menzionato nella [documentazione tecnica](https://github.com/LeonardoBrutti/ReviU/blob/main/Documentazione%20tecnica%20Revi%C3%B9.pdf) è un template che è stato utilizzato come base e che poi è stato modificato. Il template è trovabile [qui](https://colorlib.com/wp/template/login-form-v1/). Inoltre il dataset è stato scaricato da [qui](https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/).
 
 # Ringraziamenti
 Il team MVBL desidera ringraziare l'azienda SEEWEB per l'opportunità offerta e il Sig. Marco Cristofanilli per il suo supporto durante lo sviluppo del progetto.
