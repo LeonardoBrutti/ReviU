@@ -1,30 +1,30 @@
 # Reviù 🤌
 
 ## Descrizione del progetto
-Reviù è un assistente personale basato su intelligenza artificiale progettato per analizzare recensioni di prodotti in ambito E-commerce. Il suo obiettivo principale è fornire un'analisi accurata dei sentimenti degli acquirenti, aiutando i proprietari di siti specializzati a comprendere le opinioni dei clienti.Tutti possono usare Reviù. È semplice, è veloce e può aiutarvi a capire i sentimenti delle persone a voi più care
+Reviù è un assistente personale creato grazie all'utilizzo di tecniche di intelligenza artificiale, è stato pensato da noi per analizzare recensioni di prodotti in ambito E-commerce. Il suo obiettivo principale però è quello di fornire un'analisi accurata dei sentimenti da un input testuale, aiutando i proprietari di siti a comprendere le opinioni dei clienti ma è ovviamente possibile utilizzarlo da chiunque. È semplice, è veloce e può aiutarvi a capire i sentimenti delle persone a voi più care!
 
 # Configurazione ed uso
-# Installazzione
+# Installazione
 
 Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'interprete python : 
 
-- Essendo stato testato solamente su [python 3.8](https://www.python.org/downloads/release/python-380/) consigliamo vivamente di installare questa versione poichè versioni precedenti o più aggiornate potrebbero non funzionare correttamente.
+- Essendo stato testato solamente su [python 3.8,8](https://www.python.org/downloads/release/python-388/) consigliamo vivamente di installare questa versione poichè versioni precedenti o più aggiornate potrebbero non funzionare correttamente.
 
 - Scaricare il repository tramite il seguente comando sul terminale oppure semplicemente utilizzando il tasto code e cliccare installa zip dopodichè estrarre il file
     ``` bash
     git clone https://github.com/LeonardoBrutti/ReviU.git
     ``` 
-- Installare tutte le dipendenze contenute in `requirements.txt` tramite il comando 
+- Installare tutte le dipendenze contenute in `requirements.txt` tramite il comando:
     ``` bash
     pip install -r requirements.txt
     ```
 
-- Installare spacy tramite il seguente comando
+- Installare spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
     ``` bash
     python -m spacy download en_core_web_sm
     ```
 
-- Installare torch tramite il seguente comando
+- Installare torch, la libreria chiave utilizzata nel modello tramite il seguente comando:
     ``` bash
     pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
     ```
@@ -41,20 +41,20 @@ Press CTRL+C to quit
 * Debugger is active!
 * Debugger PIN: 144-891-974
 ```
-Per avviare il sito bisogna andare nella directory `Reviù` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, tramite admin admin e tramite utente utente, nel lato admin è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 mentre nel lato utente è possibile scrivere la recensione per uno dei 4 prodotti disponibile nell'MVBL SHOP
+Per avviare il sito bisogna andare nella directory `Reviù` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin, dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente, dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP.
 
 # Tecnologie utilizzate
-Il progetto Reviù è stato sviluppato utilizzando il linguaggio di programmazione Python (attualmente testato solo sulle macchine windows con python 3.8 versioni precendi o più aggiornate potrebbero non funzionare correttamente) e sfruttando principlamente le seguenti librerie:
+Il progetto Reviù è stato sviluppato utilizzando il linguaggio di programmazione Python (attualmente testato solo su macchine windows con python 3.8.8 (ersioni precendi o più aggiornate potrebbero non funzionare correttamente) e sfruttando principlamente le seguenti librerie:
 
 
 - Pytorch, inclusi i moduli aggiuntivi come torchtext, torchaudio e torchvision.
 - Pandas
 - Spacy
 
-Il modello di intelligenza artificiale si basa su una rete neurale ricorrente chiamata LSTM (Long Short-Term Memory), scelta per la sua efficacia nel gestire dati sequenziali come il linguaggio naturale.
+Il nostro modello di intelligenza artificiale si basa su una rete neurale ricorrente chiamata LSTM (Long Short-Term Memory), scelta per la sua efficacia nel gestire dati sequenziali come il linguaggio naturale.
 
 # Dataset
-Il dataset utilizzato per l'addestramento del modello è il "IMDB movie review dataset", contenente circa 50.000 recensioni di film in lingua inglese. Poiché non è stato possibile trovare un dataset equivalente in lingua italiana, si è optato per questo dataset inglese.
+Il dataset utilizzato per l'addestramento del modello è : "IMDB movie review dataset", contenente circa 50.000 recensioni di film in lingua inglese. Poiché non è stato possibile trovare un dataset equivalente in lingua italiana, si è optato per questo dataset inglese.
 
 # Struttura del progetto 
 Il progetto è suddiviso in diversi file e moduli:
