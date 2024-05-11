@@ -10,6 +10,7 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
 
 - Essendo stato testato solamente su [python 3.8.8](https://www.python.org/downloads/release/python-388/) consigliamo vivamente di installare questa versione poichè versioni precedenti o più aggiornate potrebbero non funzionare correttamente.
 
+- Non è necessaria l'installazione del CUDA toolkit, ne tantomeno di CuDNN, vi basterà seguire le indicazioni da noi fornite qui sotto. 
 - Scaricare la repository tramite il seguente comando sul terminale oppure semplicemente utilizzando il tasto code e cliccare installa zip dopodichè estrarre il file
     ``` bash
     git clone https://github.com/LeonardoBrutti/ReviU.git
