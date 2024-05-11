@@ -19,6 +19,10 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     ``` bash
     pip install -r requirements.txt
     ```
+- Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il codice:
+    ``` bash
+  !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
+    ```
 
 - Installare il tokenizer fornito da Spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
     ``` bash
