@@ -1,16 +1,16 @@
 # Reviù 🤌
 
 ## Descrizione del progetto
-Reviù non è altro che un modello di intelligenza artificiale che rientra tra i progetti di sentiment analisys. È stato però creato da noi con l'intento di essere un assistente personale creato per analizzare recensioni di prodotti in ambito E-commerce. Il suo obiettivo principale però è quello di fornire un'analisi accurata dei sentimenti da un input testuale, aiutando i proprietari di siti a comprendere le opinioni dei clienti ma è ovviamente possibile utilizzarlo da chiunque. È semplice, è veloce e può aiutarvi a capire i sentimenti delle persone a voi più care!
+Reviù non è altro che un modello di intelligenza artificiale che rientra tra i progetti di sentiment analysis. È stato creato da noi con l'intento di essere un assistente personale che analizzi recensioni di prodotti in ambito E-commerce e ne riporti una valutazione del sentiment positiva o negativa. È però utilizzabile da chiunque per molti più scopi. È semplice, è veloce e per esempio può aiutarvi a capire i sentimenti delle persone a voi più care!
 
 # Configurazione ed uso
 # Installazione
 
 Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'interprete python : 
 
-- Essendo stato testato solamente su [python 3.8,8](https://www.python.org/downloads/release/python-388/) consigliamo vivamente di installare questa versione poichè versioni precedenti o più aggiornate potrebbero non funzionare correttamente.
+- Essendo stato testato solamente su [python 3.8.8](https://www.python.org/downloads/release/python-388/) consigliamo vivamente di installare questa versione poichè versioni precedenti o più aggiornate potrebbero non funzionare correttamente.
 
-- Scaricare il repository tramite il seguente comando sul terminale oppure semplicemente utilizzando il tasto code e cliccare installa zip dopodichè estrarre il file
+- Scaricare la repository tramite il seguente comando sul terminale oppure semplicemente utilizzando il tasto code e cliccare installa zip dopodichè estrarre il file
     ``` bash
     git clone https://github.com/LeonardoBrutti/ReviU.git
     ``` 
@@ -19,7 +19,7 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     pip install -r requirements.txt
     ```
 
-- Installare spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
+- Installare il tokenizer fornito da Spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
     ``` bash
     python -m spacy download en_core_web_sm
     ```
@@ -29,11 +29,11 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
     ```
 # Utilizzo
-Ora che sono state scaricate tutte le dipendenze neccessarie puoi recarti all'interno del progetto e avviare il file `app.py` tramite IDE o tramite terminale con 
+Ora che sono state scaricate tutte le dipendenze neccessarie puoi recarti all'interno del progetto e avviare il file `app.py` tramite IDE o tramite terminale con il comando:
 ``` bash
 python app.py
-``` 
-una volta avviato il file python bisogno aspettare diversi secondi per il caricamento del modello, una volta che viene visualizzata la seguente scritta sul terminale è possibile avviare il sito .
+```
+Una volta avviato lo script python bisogna aspettare circa una trentina di secondi per il caricamento del modello, una volta che viene visualizzata la seguente scritta sul terminale è possibile avviare il sito .
 ```
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. * Running on http://127.0.0.1:5000
 Press CTRL+C to quit
@@ -41,10 +41,10 @@ Press CTRL+C to quit
 * Debugger is active!
 * Debugger PIN: 144-891-974
 ```
-Per avviare il sito bisogna andare nella directory `Reviù` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin, dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente, dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP.
+Per avviare il sito bisogna andare nella directory `Reviù` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin : dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente : dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP.
 
 # Tecnologie utilizzate
-Il progetto Reviù è stato sviluppato utilizzando il linguaggio di programmazione Python (attualmente testato solo su macchine windows con python 3.8.8 (ersioni precendi o più aggiornate potrebbero non funzionare correttamente) e sfruttando principlamente le seguenti librerie:
+Il progetto Reviù è stato sviluppato utilizzando il linguaggio di programmazione Python, attualmente testato solo su macchine windows con python 3.8.8 (versioni precendi o più aggiornate potrebbero non funzionare correttamente) e sfruttando principalmente le seguenti librerie:
 
 
 - Pytorch, inclusi i moduli aggiuntivi come torchtext, torchaudio e torchvision.
@@ -63,11 +63,11 @@ Il progetto è suddiviso in diversi file e moduli:
 
 - `training.py`: File per l'addestramento del modello, con funzioni per calcolare l'accuratezza e implementare la back propagation utilizzando algoritmi di ottimizzazione come SGD o Adam.
 
-- `app.py`: Questo file gestisce il caricamento del modello addestrato e fornisce funzioni per predire la probabilità di sentimenti. Gestisce anche la comunicazione tra il sito web e l'applicazione Python utilizzando il framework Flask.
+- `app.py`: Questo file gestisce il caricamento del modello addestrato e fornisce funzioni per predirre la probabilità del sentiment. Gestisce anche la comunicazione tra il sito web e l'applicazione Python utilizzando il framework Flask.
 
 - `index.html`: Pagina di login del sito web, con due account disponibili: Admin e Utente.
 
-- `admin.html` e `utente.html`: Pagine web fittizie hostato in locale per dimostrare il funzionamento di Reviù. Include una dashboard per gli admin per monitorare le recensioni e un'area per poter scrivere le recensioni .
+- `admin.html` e `utente.html`: Pagine web fittizie, hostate in locale, create per dimostrare il funzionamento di Reviù. Include una dashboard per gli admin da dove monitorare le recensioni, e un'area per gli utenti da dove poter scrivere le recensioni .
 
 # Approfondimenti
 
