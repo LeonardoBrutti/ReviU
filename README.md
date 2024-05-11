@@ -1,7 +1,7 @@
 # Reviù 🤌
 
 ## Descrizione del progetto
-Reviù è un assistente personale creato grazie all'utilizzo di tecniche di intelligenza artificiale, è stato pensato da noi per analizzare recensioni di prodotti in ambito E-commerce. Il suo obiettivo principale però è quello di fornire un'analisi accurata dei sentimenti da un input testuale, aiutando i proprietari di siti a comprendere le opinioni dei clienti ma è ovviamente possibile utilizzarlo da chiunque. È semplice, è veloce e può aiutarvi a capire i sentimenti delle persone a voi più care!
+Reviù non è altro che un modello di intelligenza artificiale che rientra tra i progetti di sentiment analisys. È stato però creato da noi con l'intento di essere un assistente personale creato per analizzare recensioni di prodotti in ambito E-commerce. Il suo obiettivo principale però è quello di fornire un'analisi accurata dei sentimenti da un input testuale, aiutando i proprietari di siti a comprendere le opinioni dei clienti ma è ovviamente possibile utilizzarlo da chiunque. È semplice, è veloce e può aiutarvi a capire i sentimenti delle persone a voi più care!
 
 # Configurazione ed uso
 # Installazione
