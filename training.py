@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 import time
-from LSTM_MODEL import model, train_loader, valid_loader, test_loader
+from LSTM_MODEL import model, train_loader, valid_loader
 
 ##TRAINING##
 

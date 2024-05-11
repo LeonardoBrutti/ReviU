@@ -102,6 +102,8 @@ model = LSTM(input_dim=len(TESTO.vocab),
 
 model = model.to(DEVICE)
 
+print("coao")
+
 
 
 
