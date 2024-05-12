@@ -54,15 +54,14 @@ Il nostro modello di intelligenza artificiale si basa su una rete neurale ricorr
 
 # Dataset
 Il dataset utilizzato per l'addestramento del modello è : "IMDB movie review dataset", non esattamente la versione originale, ma una versione con una pulizia iniziale, contiene circa 50.000 recensioni di film in lingua inglese. Poiché non è stato possibile trovare un dataset equivalente in lingua italiana, si è optato per questo in lingua anglosassone.
-Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il comando e per eseguirlo va prima installato wget, vi lasciamo di seguito anche un link che porta ad un tutorial per l'installazione su windows.
+Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il comando e per eseguirlo va prima installato wget, vi lasciamo di seguito anche un [link che porta ad un tutorial per l'installazione su windows](https://www.jcchouinard.com/wget-install-windows/).
   ``` bash
   !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
-  https://www.jcchouinard.com/wget-install-windows/
   ```
 # Struttura del progetto 
 Il progetto è suddiviso in diversi file e moduli:
 
--`LSTM_MODEL.py`: Contiene la definizione della classe LSTM, che stabilisce il comportamento del modello durante il training, inclusi l'embedding e la funzione forward.
+- `LSTM_MODEL.py`: Contiene la definizione della classe LSTM, che stabilisce il comportamento del modello durante il training, inclusi l'embedding e la funzione forward.
 
 - `training.py`: File per l'addestramento del modello, con funzioni per calcolare l'accuratezza e implementare la back propagation utilizzando algoritmi di ottimizzazione come SGD o Adam.
 
