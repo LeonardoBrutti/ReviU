@@ -19,10 +19,6 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     ``` bash
     pip install -r requirements.txt
     ```
-- Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il comando e per eseguirlo va installato prima wget:
-    ``` bash
-  !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
-    ```
 
 - Installare il tokenizer fornito da Spacy, una libreria open source per l'elaborazione del linguaggio naturale, tramite il seguente comando:
     ``` bash
@@ -33,6 +29,12 @@ Per poter usare Reviù 🤌 c'è bisogno di installare diverse librerie e l'inte
     ``` bash
     pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
     ```
+  
+- Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il comando e per eseguirlo va prima installato wget, vi lasciamo di seguito anche un link che porta ad un tutorial per l'installazione su windows. Quest'ultimo punto non è necessario ai fini del funzionamento del progetto.
+  ``` bash
+  !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
+  https://youtu.be/CkpTEJH6xkg?si=wAOsii17w5xWfqyI
+  ```
 # Utilizzo
 Ora che sono state scaricate tutte le dipendenze neccessarie puoi recarti all'interno del progetto e avviare il file `app.py` tramite IDE o tramite terminale con il comando:
 ``` bash
@@ -44,7 +46,7 @@ WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://127.0.0.1:5000
 Press CTRL+C to quit
 ```
-Per avviare il sito bisogna andare nella directory `MVBL-SHOP` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin : dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente : dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP. E' consigliabile aprire due pagine una con l'accesso come utente e una con l'acesso admin.
+Per avviare il sito bisogna andare nella directory `MVBL-SHOP` e aprire il file `index.html` con un qualsiasi browser, dopodichè si aprirà una pagina di login con 2 possibili accessi, con le credenziali admin admin : dove è possibile vedere l'arrivo delle recensioni e la predizione fatta da Reviù🤌 e con le credenziali utente utente : dove è possibile scrivere la propria recensione, in inglese,  per uno dei 4 prodotti disponibili nell'MVBL SHOP. E' consigliabile aprire due pagine una con l'accesso come utente e una con l'acesso admin per verificare l'efficenza di Reviù nella dashboard situtata nell'account admin, dopo aver lasciato una recensione nell'account utente,
 
 # Tecnologie utilizzate
 Il progetto Reviù è stato sviluppato utilizzando il linguaggio di programmazione Python, attualmente testato solo su macchine windows con python 3.8.8 (versioni precendi o più aggiornate potrebbero non funzionare correttamente) e sfruttando principalmente le seguenti librerie:
