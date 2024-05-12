@@ -57,7 +57,7 @@ Il dataset utilizzato per l'addestramento del modello è : "IMDB movie review da
 Il dataset è già presente tra i file del progetto col nome di movie_data.csv, ma se per qualsiasi motivo voleste riscaricarlo, questo è il comando e per eseguirlo va prima installato wget, vi lasciamo di seguito anche un link che porta ad un tutorial per l'installazione su windows.
   ``` bash
   !wget https://github.com/rasbt/python-machine-learning-book-3rd-edition/raw/master/ch08/movie_data.csv.gz
-  https://youtu.be/CkpTEJH6xkg?si=wAOsii17w5xWfqyI
+  https://www.jcchouinard.com/wget-install-windows/
   ```
 # Struttura del progetto 
 Il progetto è suddiviso in diversi file e moduli:
